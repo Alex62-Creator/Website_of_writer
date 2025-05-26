@@ -1,0 +1,95 @@
+/* Кастомные стили */
+
+.nav-link {
+    position: relative;
+    padding-bottom: 2px !important;
+    }
+
+.nav-link.active {
+    color: #000 !important;
+    font-weight: 500;
+    }
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform-origin: left;
+    animation: underline 0.3s ease;
+    }
+
+.nav-link i {
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #333; /* Основной цвет иконок */
+    }
+
+.nav-link:hover i {
+    transform: translateY(-2px);
+    color: #000; /* Цвет при наведении */
+    }
+
+/* Кастомные цвета для разных соцсетей */
+.fa-facebook-f:hover { color: #1877f2 !important; }
+.fa-x-twitter:hover { color: #000 !important; }
+.fa-instagram:hover { color: #e4405f !important; }
+.fa-tiktok:hover { color: #69c9d0 !important; }
+.fa-goodreads-g:hover { color: #553b08 !important; }
+
+.dropdown-menu {
+    border: 2px solid #000;
+    margin-top: 0.5rem;
+    }
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: #e9f7f7;
+    color: #000 !important;
+    font-weight: bold;
+    }
+
+.dropdown-item {
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    }
+
+.dropdown-toggle::after {
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    }
+
+@keyframes underline {
+    from { transform: scaleX(0) }
+    to { transform: scaleX(1) }
+    }
+
+@media (min-width: 992px) {
+    .mx-lg-120 {
+        margin-left: 120px;
+        margin-right: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    .gap-3 {
+        gap: 1rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+
+    .dropdown-menu {
+        display: none; /* Отключаем стандартное поведение клика */
+    }
+}

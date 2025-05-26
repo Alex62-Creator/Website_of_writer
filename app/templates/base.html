@@ -1,0 +1,138 @@
+
+<! doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+
+    <!--Подключение CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+    <div style="background-color: #e9f7f7; min-height: 100vh; display: flex; flex-direction: column">
+        <div style="background-color: #ffffff; border: 2px solid #000000; margin: 50px 220px;">
+            <div class="container-fluid">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-auto p-5">
+                        <a href="/" class="d-block">
+                            <img src="{{ url_for('static', filename='image/logo6.png') }}"
+                                 alt="Logo" width="1400px"
+                                 class="img-fluid mx-auto">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Навигационное меню -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-auto">
+                    <nav class="navbar navbar-expand-lg">
+                        <ul class="navbar-nav gap-5">
+                            {% set nav_items = [
+                                ('home', 'HOME', []),
+                                ('#', 'BOOKS', [
+                                    ('book1', 'BOOK1'),
+                                    ('book2', 'BOOK2'),
+                                    ('book3', 'BOOK3')
+                                ]),
+                                ('shop', 'SHOP', []),
+                                ('about', 'ABOUT', []),
+                                ('contact', 'CONTACT', [])
+                            ] %}
+
+                            {% for endpoint, text, children in nav_items %}
+                                <li class="nav-item {% if children %}dropdown{% endif %}">
+                                    {% if children %}
+                                        <!-- Выпадающее меню для BOOKS -->
+                                        <a class="nav-link dropdown-toggle {% if request.endpoint in ['fiction', 'nonfiction', 'children'] %}active{% endif %}"
+                                            href="#"
+                                            role="button"
+                                            data-bs-toggle="dropdown"
+                               a            ria-expanded="false">
+                                            <h4>{{ text }}</h4>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            {% for child_endpoint, child_text in children %}
+                                                <li>
+                                                    <a class="dropdown-item {% if request.endpoint == child_endpoint %}active{% endif %}"
+                                                       href="{{ url_for(child_endpoint) }}">
+                                                        {{ child_text }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% else %}
+                                        <!-- Обычные пункты меню -->
+                                        <a href="{{ url_for(endpoint) }}"
+                                            class="nav-link {% if request.endpoint == endpoint %}active{% endif %}">
+                                            <h4>{{ text }}</h4>
+                                        </a>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            {% block content %}
+            {% endblock %}
+
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <nav class="navbar navbar-expand-lg mb-5 mt-4">
+                        <ul class="navbar-nav gap-3">
+                            <li class="me-3">
+                                <a href="https://www.facebook.com/" class="nav-link" aria-label="Facebook" target="_blank"
+                                   rel="noopener noreferrer">
+                                    <i class="fab fa-facebook-f fa-lg"></i>
+                                </a>
+                            </li>
+                            <li class="me-3">
+                                <a href="https://x.com/" class="nav-link" aria-label="Twitter" target="_blank"
+                                   rel="noopener noreferrer">
+                                    <i class="fab fa-twitter fa-lg"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/" class="nav-link" aria-label="Instagram" target="_blank"
+                                   rel="noopener noreferrer">
+                                    <i class="fab fa-instagram fa-lg"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.tiktok.com/" class="nav-link" aria-label="TikTok" target="_blank"
+                                   rel="noopener noreferrer">
+                                    <i class="fab fa-tiktok fa-lg"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.goodreads.com/" class="nav-link" aria-label="Goodreads" target="_blank"
+                                   rel="noopener noreferrer">
+                                    <i class="fab fa-goodreads fa-lg"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--Подключение JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
