@@ -14,8 +14,8 @@
 
     <!--Подключение CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 
 </head>
 <body>
@@ -54,11 +54,12 @@
                                 <li class="nav-item {% if children %}dropdown{% endif %}">
                                     {% if children %}
                                         <!-- Выпадающее меню для BOOKS -->
-                                        <a class="nav-link dropdown-toggle {% if request.endpoint in ['fiction', 'nonfiction', 'children'] %}active{% endif %}"
+                                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2
+                                            {% if request.endpoint in ['book1', 'book2', 'book3'] %}active{% endif %}"
                                             href="#"
                                             role="button"
                                             data-bs-toggle="dropdown"
-                               a            ria-expanded="false">
+                               a            aria-expanded="false">
                                             <h4>{{ text }}</h4>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-end">
