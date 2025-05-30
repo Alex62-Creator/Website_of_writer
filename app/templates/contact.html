@@ -8,5 +8,94 @@
 
 <!--contact.html (стилизованный контент) -->
 {% block content %}
-<h1 align="center">CONTACT</h1>
+<div class="container-fluid py-5">
+    <div class="row align-items-center">
+		<div class="text-center">
+            <p class="custom-font-size">Would like to get in touch, share a paranormal story, ask a question, or just chat? Please fill out the form below.</p>
+            <p class="custom-font-size"><i>Don’t be a shadow 🦋</i></p>
+		</div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-12">
+            <form method="POST" action="{{ url_for('about') }}" class="p-4 rounded shadow" style="background-color: #fdf7f7;">
+                {{ form.hidden_tag() }}
+
+                <h3 class="text-center mb-4">Contact Me</h3>
+
+                <!-- Username Field -->
+                <div class="mb-3">
+                    <label class="form-label">
+                        {{ form.username.label.text }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form.username(
+                        class="form-control" ~ (" is-invalid" if form.username.errors else ""),
+                        size=20,
+                        placeholder="Enter your name",
+                        required=True
+                    ) }}
+                    {% if form.username.errors %}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Email Field -->
+                <div class="mb-3">
+                    <label class="form-label">
+                        {{ form.email.label.text }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form.email(
+                        class="form-control" ~ (" is-invalid" if form.email.errors else ""),
+                        size=32,
+                        placeholder="name@example.com",
+                        required=True
+                    ) }}
+                    {% if form.email.errors %}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Message Field -->
+                <div class="mb-4">
+                    <label class="form-label">
+                        {{ form.text.label.text }}
+                    </label>
+                    {{ form.text(
+                        class="form-control" ~ (" is-invalid" if form.text.errors else ""),
+                        rows=5,
+                        placeholder="Your message...",
+                        style="resize: none;"
+                    ) }}
+                    {% if form.text.errors %}
+                        <div class="invalid-feedback">
+                            {% for error in form.text.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid">
+                    {{ form.submit(
+                        class="btn btn-primary btn-lg fw-bold", style="letter-spacing: 1px;"
+                    ) }}
+                </div>
+
+                <p class="text-muted mt-3 mb-0 text-center">
+                    <small>Fields marked with <span class="text-danger">*</span> are required</small>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

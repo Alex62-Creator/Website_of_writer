@@ -113,3 +113,56 @@
         display: none; /* Отключаем стандартное поведение клика */
     }
 }
+
+
+/* Кастомные стили для анимации текста */
+.carousel-caption {
+    bottom: 20% !important; /* Позиционирование текста */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+/* Анимация при активации слайда */
+.carousel-item.active .carousel-caption {
+    animation-duration: 1.5s;
+    }
+
+.custom-font-color {
+    color: #fffbe6 !important;
+    }
+
+.custom-font-size {
+    font-size: 16px; !important;    /* Размер */
+    line-height: 1.4;               /* Межстрочный интервал */
+    }
+
+
+/* Кастомные стили для формы */
+.form-control {
+    border: 1px solid #ced4da;
+    transition: all 0.3s ease;
+    padding: 12px 15px;
+    border-radius: 8px;
+    }
+
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+.btn-primary {
+    background: linear-gradient(to right, #cf9370, #846968);
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    }
+
+.btn-primary:hover {
+    background: linear-gradient(to right, #846968, #cf9370);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(37, 117, 252, 0.3);
+    }
+
+.shadow {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    }

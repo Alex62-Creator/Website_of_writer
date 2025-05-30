@@ -2,11 +2,38 @@
 {% extends 'base.html' %}
 
 {% block title %}
-	Books
+	About
 {% endblock %}
 
 
-<!--book1.html (стилизованный контент) -->
+<!--asout.html (стилизованный контент) -->
 {% block content %}
-<h1 align="center">BOOK1</h1>
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-5 px-5">
+            <img src="{{ url_for('static', filename='image/book1.png') }}"
+                 alt="Casting Shadows"
+                 class="img-fluid mx-auto d-block">
+        </div>
+        <div class="col-7 px-5 d-flex align-items-center">
+            <div>
+                <p class="custom-font-size">When eighteen-year-old Rebecca Grimwood sees a fortune teller in the heart of Washington, DC, she thinks she is just a girl haunted by a strange, recurring dream. She has no idea her destiny involves a sacrifice and a magical diary with special powers.</p>
+                <p class="custom-font-size">Until a handsome stranger tells her otherwise.</p>
+                <p class="custom-font-size">With his beautiful, ever-changing eyes and gallant gestures, Derek Cromwell is surely charming. Except one downfall. Derek is a dead Civil War soldier and a Sentinel of the Gate, a metaphysical boundary between the living and the dead, with a mission that can’t be undone.</p>
+                <p class="custom-font-size">Caught in a love triangle between a ghost of the past and her best friend, aspiring photographer Nicholas Brady, Rebecca is trying to stay true to her heart while everything around her crumbles, as she reveals the secrets that stayed buried on Civil War battlefields for generations.</p>
+                <p class="custom-font-size">Secrets. And the darkness that accompanies them.</p>
+                <p class="custom-font-size">At night, the disembodied voices rise with the wind, slithering between the cobble-stoned streets of Harpers Ferry. The claws of something dark scratch against the stone houses, making their lights flicker.</p>
+                <p class="custom-font-size">What has brought the monsters to this town? And how does Rebecca stop them before they destroy everything, including the two men she starts to fall for?</p>
+                <p class="custom-font-size">The Diary holds all the secrets.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5">
+    <div class="row justify-content-center">
+        <div class="d-grid col-sm-6 col-md-4 col-lg-3">
+            <a class="btn btn-primary btn-lg fw-bold" target="_blank" style="letter-spacing: 1px;" href="https://www.amazon.com/Casting-Shadows-Book-ebook/dp/B0F4M6YV9F" role="button">Buy Now</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

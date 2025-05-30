@@ -2,11 +2,35 @@
 {% extends 'base.html' %}
 
 {% block title %}
-	Books
+	About
 {% endblock %}
 
 
-<!--book1.html (стилизованный контент) -->
+<!--asout.html (стилизованный контент) -->
 {% block content %}
-<h1 align="center">BOOK3</h1>
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-5 px-5">
+            <img src="{{ url_for('static', filename='image/book3.jpeg') }}"
+                 alt="The Night Crawler"
+                 class="img-fluid mx-auto d-block">
+        </div>
+        <div class="col-7 px-5 d-flex align-items-center">
+            <div>
+                <p class="custom-font-size">Ominous clouds gather above the Grimwood Family Crypt while Rebecca rests like Sleeping Beauty inside her glass coffin. Though her two loyal confidants, Nick and Derek, make desperate attempts to awaken her, the bridge that connects Rebecca’s physical body to her soul is slowly withering away.</p>
+                <p class="custom-font-size">Inside the Black Book the diabolical yet irresistible love witches, Sophia and Garret, are plotting to return the Diary to its evil ruler. They will stop at nothing, even if it means using every heart-wrenching hocus-pocus in their spell book.</p>
+                <p class="custom-font-size">While skulls and bones levitate in the air, and cauldrons boil inside the witches’ cottage, never take your eyes off the quietly sinister lake, because something horrible is lurking there. Even more bloodcurdling than the Butcher, a monster so wicked he will make your heart stop.
+                                            Love is a battlefield, but so is the Black Book. Is this the end for one of them</p>
+                <p class="custom-font-size"><b>For readers who enjoy Guillermo del Toro's Crimson Peak.</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5">
+    <div class="row justify-content-center">
+        <div class="d-grid col-sm-6 col-md-4 col-lg-3">
+            <a class="btn btn-primary btn-lg fw-bold" target="_blank" style="letter-spacing: 1px;" href="https://www.amazon.com/dp/B0BW7RXM5K" role="button">Buy Now</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

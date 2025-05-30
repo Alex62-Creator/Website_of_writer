@@ -10,16 +10,53 @@
 {% block content %}
 <!--Карусель-->
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <!--Картинки-->
         <div class="carousel-inner">
+            <!-- Слайд 1 -->
             <div class="carousel-item active">
-                <img src="{{ url_for('static', filename='image/homek.png') }}" height=700px class="d-block w-100" alt="...">
+                <img src="{{ url_for('static', filename='image/Harpers Ferry Sl1.png') }}" height=700px class="d-block w-100" alt="Harpers Ferry">
+                <div class="carousel-caption d-none d-md-block animate__animated animate__fadeInDown animate__delay-1s">
+                    <h3 class="display-4 fw-bold custom-font-color">Welcome to Haunted Harpers Ferry, WV</h3>
+                </div>
             </div>
+
+            <!-- Слайд 2 -->
             <div class="carousel-item">
-                <img src="{{ url_for('static', filename='image/fire.png') }}" height=700px class="d-block w-100" alt="...">
+                <img src="{{ url_for('static', filename='image/Sparks_0 Sl2.png') }}" height=700px class="d-block w-100" alt="Sparks_0">
+                <div class="carousel-caption animate__animated animate__fadeInDown animate__delay-1s">
+                    <h3 class="display-4 fw-bold custom-font-color">Where stars fall from the sky...</h3>
+                </div>
             </div>
+
+            <!-- Слайд 3 -->
             <div class="carousel-item">
-                <img src="{{ url_for('static', filename='image/book3.jpeg') }}" height=700px class="d-block w-100" alt="...">
+                <img src="{{ url_for('static', filename='image/Golden Mist Sl3.png') }}" height=700px class="d-block w-100" alt="Golden Mist">
+                <div class="carousel-caption animate__animated animate__fadeInDown animate__delay-1s">
+                    <h3 class="display-4 fw-bold custom-font-color">Where sparks turn to flame...</h3>
+                </div>
+            </div>
+
+            <!-- Слайд 4 -->
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='image/Dark Sl4.png') }}" height=700px class="d-block w-100" alt="Dark">
+                <div class="carousel-caption animate__animated animate__fadeInDown animate__delay-1s">
+                    <h3 class="display-4 fw-bold custom-font-color">Where creatures of the dark run loose...</h3>
+                </div>
+            </div>
+
+            <!-- Слайд 5 -->
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='image/Diary Sl5.png') }}" height=700px class="d-block w-100" alt="Diary">
+                <div class="carousel-caption animate__animated animate__fadeInDown animate__delay-1s">
+                    <h3 class="display-4 fw-bold custom-font-color">Where a Civil War Diary decides the course of destiny...</h3>
+                </div>
+            </div>
+
+            <!-- Слайд 6 -->
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='image/Magic Sl6.png') }}" height=700px class="d-block w-100" alt="Magic">
+                <div class="carousel-caption animate__animated animate__fadeInDown animate__delay-1s">
+                    <h3 class="display-4 fw-bold custom-font-color">And magic happens...</h3>
+                </div>
             </div>
         </div>
         <!--Кнопки перехода на следующий/предыдущий элемент-->
@@ -32,4 +69,20 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
+<!-- Скрипт для перезапуска анимаций при смене слайдов -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.querySelector('#carouselExampleAutoplaying');
+
+        carousel.addEventListener('slid.bs.carousel', function() {
+            const activeCaption = document.querySelector('.carousel-item.active .carousel-caption');
+            activeCaption.classList.remove('animate__animated');
+
+            // Триггер перезапуска анимации
+            void activeCaption.offsetWidth;
+            activeCaption.classList.add('animate__animated');
+        });
+    });
+</script>
 {% endblock %}

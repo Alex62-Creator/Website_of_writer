@@ -15,18 +15,19 @@
     <!--Подключение CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 
 </head>
 <body>
-    <div style="background-color: #e9f7f7; min-height: 100vh; display: flex; flex-direction: column">
-        <div style="background-color: #ffffff; border: 2px solid #000000; margin: 50px 220px;">
+    <div style="background-color: #fdf7f7; min-height: 100vh; display: flex; flex-direction: column">
+        <div style="background-color: #ffffff; border: 2px solid #000000; margin: 30px 220px;">
             <div class="container-fluid">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-auto p-5">
+                    <div class="col-auto pt-5 px-5">
                         <a href="/" class="d-block">
-                            <img src="{{ url_for('static', filename='image/logo6.png') }}"
-                                 alt="Logo" width="1400px"
+                            <img src="{{ url_for('static', filename='image/logo.png') }}"
+                                 alt="Logo"
                                  class="img-fluid mx-auto">
                         </a>
                     </div>
@@ -34,16 +35,16 @@
             </div>
 
             <!-- Навигационное меню -->
-            <div class="row justify-content-center mb-5">
+            <div class="row justify-content-center mb-3">
                 <div class="col-auto">
                     <nav class="navbar navbar-expand-lg">
                         <ul class="navbar-nav gap-5">
                             {% set nav_items = [
                                 ('home', 'HOME', []),
                                 ('#', 'BOOKS', [
-                                    ('book1', 'BOOK1'),
-                                    ('book2', 'BOOK2'),
-                                    ('book3', 'BOOK3')
+                                    ('book1', 'Casting Shadows'),
+                                    ('book2', 'Beware & Behold'),
+                                    ('book3', 'The Night Crawler')
                                 ]),
                                 ('shop', 'SHOP', []),
                                 ('about', 'ABOUT', []),
@@ -60,7 +61,7 @@
                                             role="button"
                                             data-bs-toggle="dropdown"
                                a            aria-expanded="false">
-                                            <h4>{{ text }}</h4>
+                                            <h6>{{ text }}</h6>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-end">
                                             {% for child_endpoint, child_text in children %}
@@ -76,7 +77,7 @@
                                         <!-- Обычные пункты меню -->
                                         <a href="{{ url_for(endpoint) }}"
                                             class="nav-link {% if request.endpoint == endpoint %}active{% endif %}">
-                                            <h4>{{ text }}</h4>
+                                            <h6>{{ text }}</h6>
                                         </a>
                                     {% endif %}
                                 </li>
@@ -88,6 +89,14 @@
 
             {% block content %}
             {% endblock %}
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
             <div class="row justify-content-center">
                 <div class="col-auto">

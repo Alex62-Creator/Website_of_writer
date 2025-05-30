@@ -2,11 +2,36 @@
 {% extends 'base.html' %}
 
 {% block title %}
-	Books
+	About
 {% endblock %}
 
 
-<!--book1.html (стилизованный контент) -->
+<!--asout.html (стилизованный контент) -->
 {% block content %}
-<h1 align="center">BOOK2</h1>
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-5 px-5">
+            <img src="{{ url_for('static', filename='image/book2.jpeg') }}"
+                 alt="Beware & Behold"
+                 class="img-fluid mx-auto d-block">
+        </div>
+        <div class="col-7 px-5 d-flex align-items-center">
+            <div>
+                <p class="custom-font-size"><b>Beneath the roots of weeping willows,</b></p>
+                <p class="custom-font-size"><b>The dead lie shackled in their graves,</b></p>
+                <p class="custom-font-size"><b>Above the tombstones their voices bellow,</b></p>
+                <p class="custom-font-size"><b>Shattered glass of long forgotten days</b></p>
+                <p class="custom-font-size">When the Gate closes and Derek vanishes into the Portal instead of a demon, the doctors are desperately trying to save Rebecca’s life behind hospital doors. It’s a miracle that she survives. The magic of the Gate fades with Derek now gone and the world of shadows seems to be finally kept at bay. Though, upon Nick’s return from NY with his new girlfriend, things start to come back to life. Amanda is strangely interested in the Diary, which makes Rebecca become suspicious.</p>
+                <p class="custom-font-size">But the dark shows its true face and soon the unforeseen events lead to another startling discovery, causing Rebecca and Nick to set on the adventure to the Coterie in hopes to find a ruby and answers. But their journey is anything but easy. As the old Coterie Clock ticks the time away, they rush to save each other, dig up a centuries-old cadet corpse, and shine the lantern into the past to bring back someone they care for before he runs out of time once and for all.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5">
+    <div class="row justify-content-center">
+        <div class="d-grid col-sm-6 col-md-4 col-lg-3">
+            <a class="btn btn-primary btn-lg fw-bold" target="_blank" style="letter-spacing: 1px;" href="https://www.amazon.com/Beware-Behold-Dziyana-Taylor/dp/1952919789" role="button">Buy Now</a>
+        </div>
+    </div>
+</div>
 {% endblock %}
