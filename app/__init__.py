@@ -13,7 +13,7 @@ app.config['MAIL_PORT'] = 587  # Порт для TLS
 app.config['MAIL_USE_TLS'] = True  # Обязательно использовать TLS
 app.config['MAIL_USE_SSL'] = False  # SSL должен быть выключен
 app.config['MAIL_USERNAME'] = 'grimwoodworldcastingshadows@gmail.com'  # Ваша почта
-app.config['MAIL_PASSWORD'] = 'cospcsftjurwtfkf'  # Пароль приложения
+app.config['MAIL_PASSWORD'] = 'your_password'  # Пароль приложения
 
 mail = Mail(app)
 
